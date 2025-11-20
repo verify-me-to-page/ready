@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Education Site Development</title>
+    <meta property="og:image" content="https://bolt.new/static/og_default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+</head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">EduLearn</div>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#courses" class="nav-link">Courses</a></li>
+          <li><a href="#quiz" class="nav-link">Quiz</a></li>
+          <li><a href="#progress" class="nav-link">Progress</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Home Section -->
+      <section id="home" class="section active">
+        <div class="hero">
+          <h1>Welcome to EduLearn</h1>
+          <p>Master new skills with interactive lessons and quizzes</p>
+          <button class="btn-primary" onclick="navigateToSection('courses')">Start Learning</button>
+        </div>
+        <div class="features">
+          <div class="feature-card">
+            <div class="feature-icon">📚</div>
+            <h3>Rich Content</h3>
+            <p>Comprehensive lessons across multiple subjects</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">✅</div>
+            <h3>Interactive Quizzes</h3>
+            <p>Test your knowledge with engaging questions</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Track Progress</h3>
+            <p>Monitor your learning journey</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Courses Section -->
+      <section id="courses" class="section">
+        <h2>Available Courses</h2>
+        <div id="courses-container" class="courses-grid"></div>
+      </section>
+
+      <!-- Quiz Section -->
+      <section id="quiz" class="section">
+        <h2>Knowledge Quiz</h2>
+        <div id="quiz-container">
+          <div id="quiz-start">
+            <p>Test your knowledge with our interactive quiz</p>
+            <button class="btn-primary" onclick="startQuiz()">Start Quiz</button>
+          </div>
+          <div id="quiz-content" class="hidden">
+            <div class="quiz-header">
+              <span id="question-count">Question 1 of 5</span>
+              <span id="score">Score: 0</span>
+            </div>
+            <div id="question-container">
+              <h3 id="question-text"></h3>
+              <div id="answers" class="answers-grid"></div>
+            </div>
+            <button id="next-btn" class="btn-primary hidden" onclick="nextQuestion()">Next Question</button>
+          </div>
+          <div id="quiz-results" class="hidden">
+            <h3>Quiz Complete!</h3>
+            <p id="final-score"></p>
+            <p id="result-message"></p>
+            <button class="btn-primary" onclick="restartQuiz()">Try Again</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Progress Section -->
+      <section id="progress" class="section">
+        <h2>Your Learning Progress</h2>
+        <div class="progress-container">
+          <div class="progress-card">
+            <h3>Courses Completed</h3>
+            <div class="stat-number" id="completed-courses">0</div>
+          </div>
+          <div class="progress-card">
+            <h3>Lessons Viewed</h3>
+            <div class="stat-number" id="lessons-viewed">0</div>
+          </div>
+          <div class="progress-card">
+            <h3>Quizzes Taken</h3>
+            <div class="stat-number" id="quizzes-taken">0</div>
+          </div>
+          <div class="progress-card">
+            <h3>Average Score</h3>
+            <div class="stat-number" id="average-score">0%</div>
+          </div>
+        </div>
+        <div class="subject-progress">
+          <h3>Subject Progress</h3>
+          <div id="subject-progress-bars"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal for Course Content -->
+    <div id="course-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <div id="modal-body"></div>
+        <button class="btn-primary" onclick="markAsComplete()">Mark as Complete</button>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
